@@ -160,5 +160,5 @@ async def TimePrint(ctx):
     await ctx.channel.send(timeSet())
     return None
 
-
-bot.run(os.environ['token'])
+access_token = os.environ["BOT_TOKEN"]
+bot.run(access_token)
