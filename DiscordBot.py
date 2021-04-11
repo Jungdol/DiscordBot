@@ -113,7 +113,7 @@ async def react_test(ctx):
 async def Timetable(ctx):
     changeDay()
     if changeDay() == 1:
-        await ctx.channel.send("시간 됐습니다")
+        await ctx.channel.send("조례 줌 들어오세요\n링크 : https://zoom.us/j/2435254903?pwd=ZE5ldUpxK1lTYVErdFFMUkNOZnhDQT09")
 
     changePeriod()
     if changePeriod() == 1:
@@ -149,7 +149,7 @@ async def Timetable(ctx):
         await embedSends(ctx, days(), period)
         changePeriod()
     elif days != "Fri" and changePeriod() == 9:
-        await sends(ctx, "종례 시간입니다.")
+        await sends(ctx, "종례 시간입니다.\밴드 종례 출석체크 해주세요")
     '''elif days == "Fri" and changePeriod() == 7:
         await sends(ctx, "종례 시간입니다.")'''
     return sends(ctx, "공지 종료")
