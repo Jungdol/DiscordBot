@@ -83,8 +83,8 @@ def changePeriod():
 async def on_ready():
     days()
     timeSet()
-    # 'comment' 라는 게임 중으로 설정합니다.
-    game = discord.Game("comment")
+    # '시간표 공지' 라는 게임 중으로 설정합니다.
+    game = discord.Game("시간표 공지")
     await bot.change_presence(status=discord.Status.online, activity=game)
     print("READY")
 
