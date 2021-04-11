@@ -1,1 +1,1 @@
-worker: python --pythonpath DiscordBot.py
+worker: python --pythonpath DiscordBot.pys
