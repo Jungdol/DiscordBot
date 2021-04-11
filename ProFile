@@ -1,1 +1,1 @@
-clock: python DiscordBot.py
+worker: python --pythonpath DiscordBot.py
