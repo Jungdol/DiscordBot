@@ -111,6 +111,7 @@ async def react_test(ctx):
 
 @bot.command(name="TimetableStart")
 async def Timetable(ctx):
+    await sends(ctx, "시간표 공지 시작합니다. 봇 테스트 과정입니다. \n조례부터 종례까지 공지를 이 봇이 실행합니다. 만약 실행되지 않으면 오류이니 알려주시기 바랍니다.")
     changeDay()
     if changeDay() == 1:
         await ctx.channel.send("조례 줌 들어오세요\n링크 : https://zoom.us/j/2435254903?pwd=ZE5ldUpxK1lTYVErdFFMUkNOZnhDQT09")
