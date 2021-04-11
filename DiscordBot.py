@@ -3,6 +3,7 @@ from discord.ext import commands
 import datetime
 import load_json_variable as variable
 import Timetable as ttb
+import os
 
 prefix = "*"  # 명령어 맨 앞에 붙여야 실행됨
 bot = commands.Bot(command_prefix=prefix)
@@ -160,4 +161,4 @@ async def TimePrint(ctx):
     return None
 
 
-bot.run(variable.get_token())
+bot.run(os.environ['token'])
