@@ -9,7 +9,10 @@ import os
 prefix = "*"  # 명령어 맨 앞에 붙여야 실행됨
 bot = commands.Bot(command_prefix=prefix)
 
-secondGradeClassSix = discord.utils.get(message.guild.roles, name="2-9")
+
+def men(a):
+    secondGradeClassSix = discord.utils.get(a.guild.roles, name="2-9")
+    return secondGradeClassSix
 
 
 def days():
@@ -41,7 +44,8 @@ async def embedSends(a, day, period):
     how = str(variable.json_data[day][period]["how"])
     url = str(variable.json_data[day][period]["url"])
 
-    await sends(a, subject+" "+teacher+" 선생님 수업입니다.\n기타 링크 : "+url)
+    await a.channel.send("{} ".format(men(ctx).mention) + subject + " " + teacher + " 선생님 수업입니다.\n기타 링크 : " + url)
+    # await sends(a,"{}".format(men(ctx).mention)+subject+" "+teacher+" 선생님 수업입니다.\n기타 링크 : "+url)
     '''embed.add_field(name="과목", value=str(variable.json_data[day][period]["name"]), inline=False)
     embed.add_field(name="담당 선생님", value=str(variable.json_data[day][period]["teacher"]), inline=False)
     embed.add_field(name="수업 방법", value=str(variable.json_data[day][period]["how"]), inline=False)
@@ -106,8 +110,13 @@ async def on_message(message):
 async def react_test(ctx):
     # 유저가 요청했던 채널로 전송합니다.
     day = "Mon"
-    period = "2"    
-    await embedSends("{}"+ctx, day, period.format(secondGradeClassSix.mention))
+    period = "2"
+    subject = str(variable.json_data[day][period]["name"])
+    teacher = str(variable.json_data[day][period]["teacher"])
+    how = str(variable.json_data[day][period]["how"])
+    url = str(variable.json_data[day][period]["url"])
+    # await embedSends("{}".format(men(ctx).mention)+ctx, day, period)
+    await ctx.channel.send("{} ".format(men(ctx).mention) + subject + " " + teacher + " 선생님 수업입니다.\n기타 링크 : " + url)
 
     return None
 
@@ -153,7 +162,7 @@ async def Timetable(ctx):
         await embedSends(ctx, days(), period)
         changePeriod()
     elif days != "Fri" and changePeriod() == 9:
-        await sends(ctx, "종례 시간입니다.\밴드 종례 출석체크 해주세요")
+        await sends(ctx, "종례 시간입니다.\n밴드 종례 출석체크 해주세요")
     '''elif days == "Fri" and changePeriod() == 7:
         await sends(ctx, "종례 시간입니다.")'''
     return sends(ctx, "공지 종료")
@@ -164,5 +173,7 @@ async def TimePrint(ctx):
     await ctx.channel.send(timeSet())
     return None
 
+
 access_token = os.environ["BOT_TOKEN"]
+
 bot.run(access_token)
