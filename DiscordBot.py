@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from discord.utils import get
 import datetime
 import load_json_variable as variable
 import Timetable as ttb
@@ -7,6 +8,8 @@ import os
 
 prefix = "*"  # 명령어 맨 앞에 붙여야 실행됨
 bot = commands.Bot(command_prefix=prefix)
+
+secondGradeClassSix = discord.utils.get(message.guild.roles, name="2-9")
 
 
 def days():
@@ -103,8 +106,8 @@ async def on_message(message):
 async def react_test(ctx):
     # 유저가 요청했던 채널로 전송합니다.
     day = "Mon"
-    period = "2"
-    await embedSends(ctx, day, period)
+    period = "2"    
+    await embedSends("{}"+ctx, day, period.format(secondGradeClassSix.mention))
 
     return None
 
