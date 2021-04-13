@@ -122,6 +122,7 @@ async def stop(ctx):
 
 @bot.command(name="TimeStart")
 async def Timetable(ctx):
+    await ctx.channel.purge(limit=1)  # 명령어 실행한 메세지 삭제
     await sends(ctx, "시간표 공지 시작합니다. 봇 테스트 과정입니다. \n조례부터 종례까지 공지를 이 봇이 실행합니다. 만약 실행되지 않으면 오류이니 알려주시기 바랍니다.")
     MyClass.TimetableStop = True
     while True:
@@ -130,7 +131,7 @@ async def Timetable(ctx):
         if MyClass.st == "22:04:00":
             print("시간 측정")
         if MyClass.st == str(times.AM_TIME):
-            await ctx.channel.send("조례 줌 들어오세요\n링크 : https://zoom.us/j/2435254903?pwd=ZE5ldUpxK1lTYVErdFFMUkNOZnhDQT09")
+            await sends(ctx, "{} 조례 줌 들어오세요\n링크 : 줌 링크".format(men(ctx).mention))
         if MyClass.st == str(times.FIRST_TIME):
             period = "1"
             await embedSends(ctx, days(), period)  # days()는 실행 시의 요일, period 는 교시
@@ -153,7 +154,7 @@ async def Timetable(ctx):
             period = "7"
             await embedSends(ctx, days(), period)
         if MyClass.st == str(times.PM_TIME) and str(days()) != "Fri":
-            await sends(ctx, "종례 시간입니다.\n밴드 종례 출석체크 해주세요")
+            await sends(ctx, "{} 종례 시간입니다. 밴드 종례 출석체크 해주세요\n링크 : 줌 링크".format(men(ctx).mention))
         if MyClass.st == str(times.SEVENTH_TIME) and str(days()) == "Fri":
             await sends(ctx, "온라인 수업 공지 종료합니다.")
             break
