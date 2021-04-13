@@ -14,8 +14,7 @@ date = {"2099-12-29", "2099-12-30", "2099-12-31"}
 
 코딩 좀 다룰 줄 아는 분들은
 DiscordBot.py 내에
-@bot.command(name="TimeStart")
-async def Timetable(ctx): ... 생략
+def examCheck(a): ... 생략
 아래쪽에 보면 for문 있는데
 for i in range(0, 2):  # 지금 날짜가 1, 2학기 중간고시, 기말고시 인지 확인
 for문 부분을 싹 지워주시면 됩니다.
@@ -28,13 +27,33 @@ def men(a): ... 생략
 저 부분을 재량껏 바꾸시면 해당 멘션으로 호출합니다.
 구글링해서 찾은 후 수정하세요.
 
- 스크롤을 쭉 해보시면
+ 스크롤을 조금만 하시면
 @bot.command(name="TimeStart")
-async def Timetable(ctx): ... 생략
+def timeCheck(a): ... 생략
 부분이 보일겁니다. 그 안의 부분만 수정하시면 됩니다.
 최대한 모든 부분에 주석처리를 해놓았으니 그걸 보시고 수정하시면 됩니다.
 또한 현재 파일은 월~목은 1~7교시, 금요일은 1~6교시까지 인데 이건 직접 수정하셔야 돼요.
 주석을 충분히 많이 해놓았으니 충분히 수정하실 수 있을 겁니다.
+
+스크롤을 좀 내려서
+@bot.command(name="TimeStart")
+async def Timetable(ctx): ... 생략
+
+부분에
+
+timeCheck(ctx)
+        if MyClass.st == str(ttb.SEVENTH_TIME) and str(days(True)) == "Fri":  # 금요일 6교시 끝나고 5분 뒤 알람 종료
+            await sends(ctx, "온라인 수업 공지 종료합니다.")
+            break
+        elif not MyClass.isTimetableStop:  # stop 명령어를 사용 시 (isTimeTableStop == False) 반복문 빠져나감.
+            break
+        if str(MyClass.st) == "00:00:00":  # 자정일 시 days 실행 (요일 업데이트)
+            days(False)
+
+이렇게 되어 있는 부분은 파이썬을 이해하신다면 break 때문입니다.
+이 부분에 금요일 6교시 공지 종료하는 부분과 반복문 종료가 있는데
+재량껏 바꿔주세요.
+
 
 
 만약 도움 되셨다면 하나 20491042064107  에 간식비라도 조금..
