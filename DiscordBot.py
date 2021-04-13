@@ -12,11 +12,10 @@ bot = commands.Bot(command_prefix=prefix)
 
 class MyClass:  # 모든 곳에 쓰여야 하기에 class 화
     isTimetableStop = False
+    isReturn = False
 
     tn = datetime.datetime.now()
     st = tn.strftime("%H:%M:%S")
-
-    isReturn = False
     pass
 
 
@@ -117,7 +116,7 @@ async def Timetable(ctx):
             await sends(ctx, "{} 조례 줌 들어오세요\n링크 : 줌 링크".format(men(ctx).mention))
 
         for i in range(0, 5):  # 0~5까지 반복 총 6번 반복 -> 1~6교시
-            if ttb.All_TIME(i) == MyClass.st:  # 만약 현재 시간이 모든 교시 시간과 같으면
+            if MyClass.st == ttb.All_TIME(i):  # 만약 현재 시간이 모든 교시 시간과 같으면
                 period = i + 1  # period 를 i+1로 넣은 후 (1~6교시인데, 0~5이기에 하나 더함)
                 await embedSends(ctx, days(True), str(period))  # 현재 요일, 교시를 embedSends 에 보내며 호출
 
