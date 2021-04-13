@@ -16,6 +16,7 @@ class MyClass:  # 모든 곳에 쓰여야 하기에 class 화
 
     tn = datetime.datetime.now()
     st = tn.strftime("%H:%M:%S")
+    dd = tn.strftime('%Y-%m-%d')
     pass
 
 
@@ -62,25 +63,18 @@ async def timeCheck(a):
 
 async def examCheck(a):
     for i in range(0, 2):  # 지금 날짜가 1, 2학기 중간고시, 기말고시 인지 확인
-        if MyClass.st == ttb.FIRST_MIDTERM_EXAMINATION(i):  # 1학기 중간고사 날짜 체크
-            if MyClass.st == ttb.FIRST_MIDTERM_EXAMINATION(2):
-                await sends(a, "오늘은 중간고사 마지막 날입니다. 마지막까지 힘내시길 바랍니다!")
+        if MyClass.dd == (ttb.FIRST_MIDTERM_EXAMINATION(i) or ttb.SECOND_MIDTERM_EXAMINATION(i)) != (ttb.FIRST_MIDTERM_EXAMINATION(2) or ttb.FIRST_FINAL_EXAMINATION(2)):  # 1학기 중간, 2학기 중간고사 날짜 체크
             await sends(a, "오늘은 중간고사 " + str((i + 1)) + "일차 입니다. 좋은 성적 거두시길 바랍니다.")
+        elif MyClass.dd == (ttb.FIRST_MIDTERM_EXAMINATION(2) or ttb.FIRST_FINAL_EXAMINATION(2)):
+            await sends(a, "오늘은 중간고사 마지막 날입니다. 마지막까지 힘내시길 바랍니다!")
 
-        if MyClass.st == ttb.FIRST_FINAL_EXAMINATION(i):  # 1학기 기말고사 날짜 체크
-            if MyClass.st == ttb.FIRST_FINAL_EXAMINATION(2):
-                await sends(a, "오늘은 기말고사 마지막 날입니다. 마지막까지 힘내시길 바랍니다!")
+        if MyClass.dd == ttb.FIRST_FINAL_EXAMINATION(2):  # 1학기 기말고사 마지막 날 체크
+            await sends(a, "오늘은 기말고사 마지막 날입니다. 마지막까지 힘내시길 바랍니다!")
+
+        if MyClass.dd == (ttb.SECOND_FINAL_EXAMINATION(i) or ttb.FIRST_FINAL_EXAMINATION(i)) != ttb.SECOND_FINAL_EXAMINATION(2):  # 1, 2학기 기말고사 체크
             await sends(a, "오늘은 기말고사 " + str((i + 1)) + "일차 입니다. 좋은 성적 거두시길 바랍니다.")
-
-        if MyClass.st == ttb.SECOND_MIDTERM_EXAMINATION(i):  # 2학기 중간고사 체크
-            if MyClass.st == ttb.FIRST_FINAL_EXAMINATION(2):
-                await sends(a, "오늘은 중간고사 마지막 날입니다. 마지막까지 힘내시길 바랍니다!")
-            await sends(a, "오늘은 중간고사 " + str((i + 1)) + "일차 입니다. 좋은 성적 거두시길 바랍니다.")
-
-        if MyClass.st == ttb.SECOND_FINAL_EXAMINATION(i):  # 2학기 기말고사 체크
-            if MyClass.st == ttb.SECOND_FINAL_EXAMINATION(2):
+        elif MyClass.dd == ttb.SECOND_FINAL_EXAMINATION(2):  # 2학기 기말고사 마지막 날 체크
                 await sends(a, "2학년 마지막 시험입니다. 끝나고 맘껏 놀아주세요 ㅎㅎ")
-            await sends(a, "오늘은 기말고사 " + str((i + 1)) + "일차 입니다. 좋은 성적 거두시길 바랍니다.")
 
 
 async def embedSends(a, day, period):
@@ -91,7 +85,7 @@ async def embedSends(a, day, period):
     how = str(variable.json_data[day][period]["how"])  # Timetable.json 안의 요일, 교시 오브젝트 안 온라인 진행방식 (Zoom, Google Meet)
     url = str(variable.json_data[day][period]["url"])  # Timetable.json 안의 요일, 교시 오브젝트 안 링크
 
-    await sends(a,"{}".format(men(a).mention)+str(subject)+" 5분뒤 "+str(teacher)+" 선생님 수업입니다.\n링크 : "+url)
+    await sends(a, "{}".format(men(a).mention) + str(subject) + " 5분뒤 " + str(teacher) + " 선생님 수업입니다.\n링크 : " + url)
     # 주석 부분은 embed 에 오류나서 감싸놓음. 변경방법 아시면 주석 풀고 쓰세요 (블로그 댓글로 해결방법도 올려주세요..)
     '''embed.add_field(name="과목", value=str(subject), inline=False)
     embed.add_field(name="담당 선생님", value=str(teacher), inline=False)
