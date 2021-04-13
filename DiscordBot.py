@@ -63,7 +63,7 @@ def examCheck(a):
                 await sends(a, "오늘은 중간고사 마지막 날입니다. 마지막까지 힘내시길 바랍니다!")
             await sends(a, "오늘은 중간고사 " + str((i + 1)) + "일차 입니다. 좋은 성적 거두시길 바랍니다.")
 
-        if MyClass.st == ttb.FIRST_FINAL_EXAMINATION(i):  # 1학기 중간고사 날짜 체크
+        if MyClass.st == ttb.FIRST_FINAL_EXAMINATION(i):  # 1학기 기말고사 날짜 체크
             if MyClass.st == ttb.FIRST_FINAL_EXAMINATION(2):
                 await sends(a, "오늘은 기말고사 마지막 날입니다. 마지막까지 힘내시길 바랍니다!")
             await sends(a, "오늘은 기말고사 " + str((i + 1)) + "일차 입니다. 좋은 성적 거두시길 바랍니다.")
