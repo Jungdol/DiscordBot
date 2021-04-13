@@ -40,9 +40,13 @@ def timeSet():
     return MyClass.st  # 함수를 실행하면 시간:분:초 리턴
 
 
-def timeCheck(a):
+async def sends(a, b):
+    return await a.channel.send(b)  # ctx.channel.send("할 말")인데, 줄이기 위해서 함수화
+
+
+async def timeCheck(a):
     if MyClass.st == str(ttb.AM_TIME):  # 조례 시간일 시 공지
-        await sends(a, "{} 조례 줌 들어오세요\n링크 : 줌 링크".format(men(a).mention))
+        await sends(a, str("{} 조례 줌 들어오세요\n링크 : 줌 링크".format(men(a).mention)))
 
     for i in range(0, 5):  # 0~5까지 반복 총 6번 반복 -> 1~6교시
         if MyClass.st == ttb.All_TIME(i):  # 만약 현재 시간이 모든 교시 시간과 같으면
@@ -53,10 +57,10 @@ def timeCheck(a):
         period = "7"
         await embedSends(a, days(True), period)
     if MyClass.st == str(ttb.PM_TIME) and str(days(True)) != "Fri":  # 위와 같이 금요일은 6교시라서 금요일은 종례 알람 꺼놓음
-        await sends(a, "{} 종례 시간입니다. 밴드 종례 출석체크 해주세요\n링크 : 줌 링크".format(men(a).mention))  # 종례 시간 일 시 공지
+        await sends(a, str("{} 종례 시간입니다. 밴드 종례 출석체크 해주세요\n링크 : 링크".format(men(a).mention)))  # 종례 시간 일 시 공지
 
 
-def examCheck(a):
+async def examCheck(a):
     for i in range(0, 2):  # 지금 날짜가 1, 2학기 중간고시, 기말고시 인지 확인
         if MyClass.st == ttb.FIRST_MIDTERM_EXAMINATION(i):  # 1학기 중간고사 날짜 체크
             if MyClass.st == ttb.FIRST_MIDTERM_EXAMINATION(2):
@@ -96,10 +100,6 @@ async def embedSends(a, day, period):
     embed.add_field(name="기타 링크", value=str(url), inline=False)
     await a.channel.send(embed=embed)'''  # embed 를 포함 한 채로 메시지를 전송합니다.
     return None
-
-
-async def sends(a, b):
-    return await a.channel.send(b)  # ctx.channel.send("할 말")인데, 줄이기 위해서 함수화
 
 
 @bot.event
@@ -152,7 +152,7 @@ async def Timetable(ctx):
     while True:
         await asyncio.sleep(1)  # 1초 딜레이
         timeSet()  # 1초마다 시간 업데이트
-        timeCheck(ctx)
+        await timeCheck(ctx)
         if MyClass.st == str(ttb.SEVENTH_TIME) and str(days(True)) == "Fri":  # 금요일 6교시 끝나고 5분 뒤 알람 종료
             await sends(ctx, "온라인 수업 공지 종료합니다.")
             break
@@ -161,7 +161,7 @@ async def Timetable(ctx):
         if str(MyClass.st) == "00:00:00":  # 자정일 시 days 실행 (요일 업데이트)
             days(False)
 
-        examCheck(ctx)
+        await examCheck(ctx)
 
 
 @bot.command(name="현재 시간")  # 현재 시간 출력
