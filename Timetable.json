@@ -1,216 +1,216 @@
 {
 	"Mon": {
 		"1": {
-			"name": "문학",
-			"teacher": "이하나",
-			"how": "Zoom",
-			"url": "https://zoom.us/j/2680355224?pwd=RVVDeXNMeFpJNGVTTmdYcHRSTjFvZz09"
+			"name": "과목 이름",
+			"teacher": "담당 선생님",
+			"how": "진행 방식 (Zoom, Google Meet)",
+			"url": "Zoom, Google Meet 링크"
 		},
 		"2": {
-			"name": "일본어",
-			"teacher": "서은실",
-			"how": "Zoom",
-			"url": "https://zoom.us/j/5900838939?pwd=UlAyUU5KV3FGcGdXV3A0emhuc21IZz09"
+			"name": "과목 이름",
+			"teacher": "담당 선생님",
+			"how": "진행 방식 (Zoom, Google Meet)",
+			"url": "Zoom, Google Meet 링크"
 		},
 		"3": {
-			"name": "응용 프로그래밍",
-			"teacher": "오현지",
-			"how": "Zoom",
-			"url": "https://zoom.us/j/4949984930?pwd=NHBnT2ZNbFdCQ0JVWHNNU2FjczNBQT09"
+			"name": "과목 이름",
+			"teacher": "담당 선생님",
+			"how": "진행 방식 (Zoom, Google Meet)",
+			"url": "Zoom, Google Meet 링크"
 		},
 		"4": {
-			"name": "응용 프로그래밍",
-			"teacher": "오현지",
-			"how": "Zoom",
-			"url": "https://zoom.us/j/4949984930?pwd=NHBnT2ZNbFdCQ0JVWHNNU2FjczNBQT09"
+			"name": "과목 이름",
+			"teacher": "담당 선생님",
+			"how": "진행 방식 (Zoom, Google Meet)",
+			"url": "Zoom, Google Meet 링크"
 		},
 		"5": {
-			"name": "영어",
-			"teacher": "채서우",
-			"how": "Zoom",
-			"url": "https://zoom.us/j/2435254903?pwd=ZE5ldUpxK1lTYVErdFFMUkNOZnhDQT09"
+			"name": "과목 이름",
+			"teacher": "담당 선생님",
+			"how": "진행 방식 (Zoom, Google Meet)",
+			"url": "Zoom, Google Meet 링크"
 		},
 		"6": {
-			"name": "게임 프로그래밍",
-			"teacher": "유서영",
-			"how": "Google Meet",
-			"url": "링크 없습니다"
+			"name": "과목 이름",
+			"teacher": "담당 선생님",
+			"how": "진행 방식 (Zoom, Google Meet)",
+			"url": "Zoom, Google Meet 링크"
 		},
 		"7": {
-			"name": "게임 프로그래밍",
-			"teacher": "유서영",
-			"how": "Google Meet",
-			"url": "링크 없습니다"
+			"name": "과목 이름",
+			"teacher": "담당 선생님",
+			"how": "진행 방식 (Zoom, Google Meet)",
+			"url": "Zoom, Google Meet 링크"
 		}
 	},
 	"Tue": {
 		"1": {
-			"name": "스마트문화앱콘텐츠 제작",
-			"teacher": "유서영",
-			"how": "Zoom",
-			"url": ""
+			"name": "과목 이름",
+			"teacher": "담당 선생님",
+			"how": "진행 방식 (Zoom, Google Meet)",
+			"url": "Zoom, Google Meet 링크"
 		},
 		"2": {
-			"name": "스마트문화앱콘텐츠 제작",
-			"teacher": "유서영",
-			"how": "Zoom",
-			"url": ""
+			"name": "과목 이름",
+			"teacher": "담당 선생님",
+			"how": "진행 방식 (Zoom, Google Meet)",
+			"url": "Zoom, Google Meet 링크"
 		},
 		"3": {
-			"name": "한국사",
-			"teacher": "김동기",
-			"how": "Zoom",
-			"url": "https://us02web.zoom.us/j/3037298476?pwd=MEFpR251N1BqQnJsc3dnY3F5RW1mdz09"
+			"name": "과목 이름",
+			"teacher": "담당 선생님",
+			"how": "진행 방식 (Zoom, Google Meet)",
+			"url": "Zoom, Google Meet 링크"
 		},
 		"4": {
-			"name": "영어",
-			"teacher": "채서우",
-			"how": "Zoom",
-			"url": "https://zoom.us/j/2435254903?pwd=ZE5ldUpxK1lTYVErdFFMUkNOZnhDQT09"
+			"name": "과목 이름",
+			"teacher": "담당 선생님",
+			"how": "진행 방식 (Zoom, Google Meet)",
+			"url": "Zoom, Google Meet 링크"
 		},
 		"5": {
-			"name": "자율",
-			"teacher": "서수정",
-			"how": "Zoom",
-			"url": "https://zoom.us/j/97272729032?pwd=KzN2Z3FVaWFhVDAwNXpOR3hDclZxdz09"
+			"name": "과목 이름",
+			"teacher": "담당 선생님",
+			"how": "진행 방식 (Zoom, Google Meet)",
+			"url": "Zoom, Google Meet 링크"
 		},
 		"6": {
-			"name": "스마트문화앱콘텐츠 제작",
-			"teacher": "오현지",
-			"how": "Zoom",
-			"url": ""
+			"name": "과목 이름",
+			"teacher": "담당 선생님",
+			"how": "진행 방식 (Zoom, Google Meet)",
+			"url": "Zoom, Google Meet 링크"
 		},
 		"7": {
-			"name": "운동과 건강",
-			"teacher": "이상범",
-			"how": "Zoom",
-			"url": "https://zoom.us/j/3394763830?pwd=bzdBWXZHU0NkbVoyNVZML3JqUDlpUT09"
+			"name": "과목 이름",
+			"teacher": "담당 선생님",
+			"how": "진행 방식 (Zoom, Google Meet)",
+			"url": "Zoom, Google Meet 링크"
 		}
 	},
 	"Wed": {
 		"1": {
-			"name": "수학I",
-			"teacher": "정일권",
-			"how": "Zoom",
-			"url": "https://us02web.zoom.us/j/6329448291?pwd=RktMWlZOak02WXQrc0I4UmF3TnlvQT09"
+			"name": "과목 이름",
+			"teacher": "담당 선생님",
+			"how": "진행 방식 (Zoom, Google Meet)",
+			"url": "Zoom, Google Meet 링크"
 		},
 		"2": {
-			"name": "사회",
-			"teacher": "이선경",
-			"how": "Zoom",
-			"url": ""
+			"name": "과목 이름",
+			"teacher": "담당 선생님",
+			"how": "진행 방식 (Zoom, Google Meet)",
+			"url": "Zoom, Google Meet 링크"
 		},
 		"3": {
-			"name": "응용 프로그래밍",
-			"teacher": "오현지",
-			"how": "Zoom",
-			"url": "https://zoom.us/j/4949984930?pwd=NHBnT2ZNbFdCQ0JVWHNNU2FjczNBQT09"
+			"name": "과목 이름",
+			"teacher": "담당 선생님",
+			"how": "진행 방식 (Zoom, Google Meet)",
+			"url": "Zoom, Google Meet 링크"
 		},
 		"4": {
-			"name": "응용 프로그래밍",
-			"teacher": "오현지",
-			"how": "Zoom",
-			"url": "https://zoom.us/j/4949984930?pwd=NHBnT2ZNbFdCQ0JVWHNNU2FjczNBQT09"
+			"name": "과목 이름",
+			"teacher": "담당 선생님",
+			"how": "진행 방식 (Zoom, Google Meet)",
+			"url": "Zoom, Google Meet 링크"
 		},
 		"5": {
-			"name": "영어",
-			"teacher": "채서우",
-			"how": "Zoom",
-			"url": "https://zoom.us/j/2435254903?pwd=ZE5ldUpxK1lTYVErdFFMUkNOZnhDQT09"
+			"name": "과목 이름",
+			"teacher": "담당 선생님",
+			"how": "진행 방식 (Zoom, Google Meet)",
+			"url": "Zoom, Google Meet 링크"
 		},
 		"6": {
-			"name": "문학",
-			"teacher": "이하나",
-			"how": "Zoom",
-			"url": "https://zoom.us/j/2680355224?pwd=RVVDeXNMeFpJNGVTTmdYcHRSTjFvZz09"
+			"name": "과목 이름",
+			"teacher": "담당 선생님",
+			"how": "진행 방식 (Zoom, Google Meet)",
+			"url": "Zoom, Google Meet 링크"
 		},
 		"7": {
-			"name": "한국사",
-			"teacher": "김동기",
-			"how": "Zoom",
-			"url": "https://us02web.zoom.us/j/3037298476?pwd=MEFpR251N1BqQnJsc3dnY3F5RW1mdz09"
+			"name": "과목 이름",
+			"teacher": "담당 선생님",
+			"how": "진행 방식 (Zoom, Google Meet)",
+			"url": "Zoom, Google Meet 링크"
 		}
 	},
 	"Thu": {
 		"1": {
-			"name": "응용 프로그래밍",
-			"teacher": "오현지",
-			"how": "Zoom",
-			"url": "https://zoom.us/j/4949984930?pwd=NHBnT2ZNbFdCQ0JVWHNNU2FjczNBQT09"
+			"name": "과목 이름",
+			"teacher": "담당 선생님",
+			"how": "진행 방식 (Zoom, Google Meet)",
+			"url": "Zoom, Google Meet 링크"
 		},
 		"2": {
-			"name": "응용 프로그래밍",
-			"teacher": "오현지",
-			"how": "Zoom",
-			"url": "https://zoom.us/j/4949984930?pwd=NHBnT2ZNbFdCQ0JVWHNNU2FjczNBQT09"
+			"name": "과목 이름",
+			"teacher": "담당 선생님",
+			"how": "진행 방식 (Zoom, Google Meet)",
+			"url": "Zoom, Google Meet 링크"
 		},
 		"3": {
-			"name": "영어",
-			"teacher": "채서우",
-			"how": "Zoom",
-			"url": "https://zoom.us/j/2435254903?pwd=ZE5ldUpxK1lTYVErdFFMUkNOZnhDQT09"
+			"name": "과목 이름",
+			"teacher": "담당 선생님",
+			"how": "진행 방식 (Zoom, Google Meet)",
+			"url": "Zoom, Google Meet 링크"
 		},
 		"4": {
-			"name": "진로와 직업",
-			"teacher": "이창환",
-			"how": "Zoom",
-			"url": "https://us02web.zoom.us/j/2319564838?pwd=OUlSMFoyL09JM0ZyZGYrUWdHc2xLQT09"
+			"name": "과목 이름",
+			"teacher": "담당 선생님",
+			"how": "진행 방식 (Zoom, Google Meet)",
+			"url": "Zoom, Google Meet 링크"
 		},
 		"5": {
-			"name": "일본어",
-			"teacher": "서은실",
-			"how": "Zoom",
-			"url": "https://zoom.us/j/5900838939?pwd=UlAyUU5KV3FGcGdXV3A0emhuc21IZz09"
+			"name": "과목 이름",
+			"teacher": "담당 선생님",
+			"how": "진행 방식 (Zoom, Google Meet)",
+			"url": "Zoom, Google Meet 링크"
 		},
 		"6": {
-			"name": "게임 프로그래밍",
-			"teacher": "유서영",
-			"how": "Google Meet",
-			"url": "링크 없습니다"
+			"name": "과목 이름",
+			"teacher": "담당 선생님",
+			"how": "진행 방식 (Zoom, Google Meet)",
+			"url": "Zoom, Google Meet 링크"
 		},
 		"7": {
-			"name": "게임 프로그래밍",
-			"teacher": "유서영",
-			"how": "Google Meet",
-			"url": "링크 없습니다"
+			"name": "과목 이름",
+			"teacher": "담당 선생님",
+			"how": "진행 방식 (Zoom, Google Meet)",
+			"url": "Zoom, Google Meet 링크"
 		}
 	},
 	"Fri": {
 		"1": {
-			"name": "운동과 건강",
-			"teacher": "이상범",
-			"how": "Zoom",
-			"url": "https://zoom.us/j/3394763830?pwd=bzdBWXZHU0NkbVoyNVZML3JqUDlpUT09"
+			"name": "과목 이름",
+			"teacher": "담당 선생님",
+			"how": "진행 방식 (Zoom, Google Meet)",
+			"url": "Zoom, Google Meet 링크"
 		},
 		"2": {
-			"name": "수학I",
-			"teacher": "정일권",
-			"how": "Zoom",
-			"url": "https://us02web.zoom.us/j/6329448291?pwd=RktMWlZOak02WXQrc0I4UmF3TnlvQT09"
+			"name": "과목 이름",
+			"teacher": "담당 선생님",
+			"how": "진행 방식 (Zoom, Google Meet)",
+			"url": "Zoom, Google Meet 링크"
 		},
 		"3": {
-			"name": "과학",
-			"teacher": "김경민",
-			"how": "Zoom",
-			"url": "링크 없습니다"
+			"name": "과목 이름",
+			"teacher": "담당 선생님",
+			"how": "진행 방식 (Zoom, Google Meet)",
+			"url": "Zoom, Google Meet 링크"
 		},
 		"4": {
-			"name": "한국사",
-			"teacher": "김동기",
-			"how": "Zoom",
-			"url": "https://us02web.zoom.us/j/3037298476?pwd=MEFpR251N1BqQnJsc3dnY3F5RW1mdz09"
+			"name": "과목 이름",
+			"teacher": "담당 선생님",
+			"how": "진행 방식 (Zoom, Google Meet)",
+			"url": "Zoom, Google Meet 링크"
 		},
 		"5": {
-			"name": "창체",
-			"teacher": "채서우",
-			"how": "Zoom",
-			"url": "https://zoom.us/j/2435254903?pwd=ZE5ldUpxK1lTYVErdFFMUkNOZnhDQT09"
+			"name": "과목 이름",
+			"teacher": "담당 선생님",
+			"how": "진행 방식 (Zoom, Google Meet)",
+			"url": "Zoom, Google Meet 링크"
 		},
 		"6": {
-			"name": "창체",
-			"teacher": "채서우",
-			"how": "Zoom",
-			"url": "https://zoom.us/j/2435254903?pwd=ZE5ldUpxK1lTYVErdFFMUkNOZnhDQT09"
+			"name": "과목 이름",
+			"teacher": "담당 선생님",
+			"how": "진행 방식 (Zoom, Google Meet)",
+			"url": "Zoom, Google Meet 링크"
 		}
 	}
 }

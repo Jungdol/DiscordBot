@@ -1,8 +1,3 @@
-name = ""  # 과목명
-teacher = ""  # 담당 선생님
-how = ""  # 어디서? (줌, Google Meet 등)
-url = ""  # 관련 링크
-
 AM_TIME = "08:05:00"  # 조례 시간
 # 시간표 시작
 FIRST_TIME = "08:25:00"
