@@ -165,4 +165,4 @@ async def TimePrint(ctx):
     return None
 
 
-bot.run("ODI5NjkxMjM1NjcyOTE2MDE4.YG70LQ.Fd5hAIdzPxCtSX8m7WQxxi9Z3d4")
+bot.run("봇 토큰")
