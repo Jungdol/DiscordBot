@@ -45,19 +45,19 @@ async def sends(a, b):
     return await a.channel.send(b)  # ctx.channel.send("할 말")인데, 줄이기 위해서 함수화
 
 
-async def timeCheck(a):
-    if MyClass.st == str(ttb.AM_TIME):  # 조례 시간일 시 공지
+async def timeCheck(a, time):
+    if time == str(ttb.AM_TIME):  # 조례 시간일 시 공지
         await sends(a, str("{} 조례 줌 들어오세요\n링크 : 줌 링크".format(men(a).mention)))
 
     for i in range(0, 5):  # 0~5까지 반복 총 6번 반복 -> 1~6교시
-        if MyClass.st == ttb.All_TIME(i):  # 만약 현재 시간이 모든 교시 시간과 같으면
+        if time == ttb.All_TIME(i):  # 만약 현재 시간이 모든 교시 시간과 같으면
             period = i + 1  # period 를 i+1로 넣은 후 (1~6교시인데, 0~5이기에 하나 더함)
             await embedSends(a, days(True), str(period))  # 현재 요일, 교시를 embedSends 에 보내며 호출
 
-    if MyClass.st == str(ttb.SEVENTH_TIME) and str(days(True)) != "Fri":  # 금요일은 6교시이기 때문에 and 사용
+    if time == str(ttb.SEVENTH_TIME) and str(days(True)) != "Fri":  # 금요일은 6교시이기 때문에 and 사용
         period = "7"
         await embedSends(a, days(True), period)
-    if MyClass.st == str(ttb.PM_TIME) and str(days(True)) != "Fri":  # 위와 같이 금요일은 6교시라서 금요일은 종례 알람 꺼놓음
+    if time == str(ttb.PM_TIME) and str(days(True)) != "Fri":  # 위와 같이 금요일은 6교시라서 금요일은 종례 알람 꺼놓음
         await sends(a, str("{} 종례 시간입니다. 밴드 종례 출석체크 해주세요\n링크 : 링크".format(men(a).mention)))  # 종례 시간 일 시 공지
 
 
@@ -74,7 +74,7 @@ async def examCheck(a):
         if MyClass.dd == (ttb.SECOND_FINAL_EXAMINATION(i) or ttb.FIRST_FINAL_EXAMINATION(i)) != ttb.SECOND_FINAL_EXAMINATION(2):  # 1, 2학기 기말고사 체크
             await sends(a, "오늘은 기말고사 " + str((i + 1)) + "일차 입니다. 좋은 성적 거두시길 바랍니다.")
         elif MyClass.dd == ttb.SECOND_FINAL_EXAMINATION(2):  # 2학기 기말고사 마지막 날 체크
-                await sends(a, "2학년 마지막 시험입니다. 끝나고 맘껏 놀아주세요 ㅎㅎ")
+            await sends(a, "2학년 마지막 시험입니다. 끝나고 맘껏 놀아주세요 ㅎㅎ")
 
 
 async def embedSends(a, day, period):
@@ -94,6 +94,27 @@ async def embedSends(a, day, period):
     embed.add_field(name="기타 링크", value=str(url), inline=False)
     await a.channel.send(embed=embed)'''  # embed 를 포함 한 채로 메시지를 전송합니다.
     return None
+
+
+@bot.command(name="TimeStart")
+async def Timetable(ctx):
+    await ctx.channel.purge(limit=1)  # 명령어 실행한 메세지 삭제
+    # 해당 명령어 시작 시 나오는 문구
+    await sends(ctx, "시간표 공지 시작합니다.")
+    MyClass.isTimetableStop = True
+    while True:
+        await asyncio.sleep(1)  # 1초 딜레이
+        timeSet()  # 1초마다 시간 업데이트
+        await timeCheck(ctx, str(MyClass.st))
+        if MyClass.st == str(ttb.SEVENTH_TIME) and str(days(True)) == "Fri":  # 금요일 6교시 끝나고 5분 뒤 알람 종료
+            await sends(ctx, "온라인 수업 공지 종료합니다.")
+            break
+        elif not MyClass.isTimetableStop:  # stop 명령어를 사용 시 (isTimeTableStop == False) 반복문 빠져나감.
+            break
+        if str(MyClass.st) == "00:00:00":  # 자정일 시 days 실행 (요일 업데이트)
+            days(False)
+
+        await examCheck(ctx)
 
 
 @bot.event
@@ -118,13 +139,13 @@ async def react_test(ctx):
     # await embedSends("{}".format(men(ctx).mention)+ctx, day, period)
     await ctx.channel.send("{} ".format(men(ctx).mention) + subject + " " + teacher + " 선생님 수업입니다.\n기타 링크 : " + url)
     '''  # 이 주석또한 embed 오류임. 테스트용
-    b = "22:22:00"
-    await sends(ctx, b + "로 알람 설정되었습니다.")
+    i = "20:00:00"
+    await sends(ctx, i() + "로 알람 설정되었습니다.")
     a = True
     while a:
         await asyncio.sleep(1)
         timeSet()
-        if str(MyClass.st) == b:
+        if str(MyClass.st) == i():
             await sends(ctx, "지정된 시간이 되었습니다.")
             a = False
 
@@ -137,31 +158,11 @@ async def stop(ctx):
     await sends(ctx, "시간표 공지를 취소했습니다.\nTimetable : " + str(MyClass.isTimetableStop))
 
 
-@bot.command(name="TimeStart")
-async def Timetable(ctx):
-    await ctx.channel.purge(limit=1)  # 명령어 실행한 메세지 삭제
-    # 해당 명령어 시작 시 나오는 문구
-    await sends(ctx, "시간표 공지 시작합니다.")
-    MyClass.isTimetableStop = True
-    while True:
-        await asyncio.sleep(1)  # 1초 딜레이
-        timeSet()  # 1초마다 시간 업데이트
-        await timeCheck(ctx)
-        if MyClass.st == str(ttb.SEVENTH_TIME) and str(days(True)) == "Fri":  # 금요일 6교시 끝나고 5분 뒤 알람 종료
-            await sends(ctx, "온라인 수업 공지 종료합니다.")
-            break
-        elif not MyClass.isTimetableStop:  # stop 명령어를 사용 시 (isTimeTableStop == False) 반복문 빠져나감.
-            break
-        if str(MyClass.st) == "00:00:00":  # 자정일 시 days 실행 (요일 업데이트)
-            days(False)
-
-        await examCheck(ctx)
-
-
-@bot.command(name="현재 시간")  # 현재 시간 출력
+@bot.command(name="timeNow")  # 현재 시간 출력
 async def TimePrint(ctx):
     await ctx.channel.send(timeSet())
+    await ctx.channel.send(MyClass.st+" st 변수 출력")
     return None
 
 
-bot.run("봇 토큰")
+bot.run("ODI5NjkxMjM1NjcyOTE2MDE4.YG70LQ.Fd5hAIdzPxCtSX8m7WQxxi9Z3d4")
