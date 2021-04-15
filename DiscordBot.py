@@ -85,7 +85,7 @@ async def embedSends(a, day, period):
     how = str(variable.json_data[day][period]["how"])  # Timetable.json 안의 요일, 교시 오브젝트 안 온라인 진행방식 (Zoom, Google Meet)
     url = str(variable.json_data[day][period]["url"])  # Timetable.json 안의 요일, 교시 오브젝트 안 링크
 
-    await sends(a, "{}".format(men(a).mention) + str(subject) + " 5분뒤 " + str(teacher) + " 선생님 수업입니다.\n링크 : " + url)
+    await sends(a, "{} ".format(men(a).mention) + str(subject) + " 5분뒤 " + str(teacher) + " 선생님 수업입니다.\n링크 : " + url)
     # 주석 부분은 embed 에 오류나서 감싸놓음. 변경방법 아시면 주석 풀고 쓰세요 (블로그 댓글로 해결방법도 올려주세요..)
     '''embed.add_field(name="과목", value=str(subject), inline=False)
     embed.add_field(name="담당 선생님", value=str(teacher), inline=False)
@@ -140,12 +140,12 @@ async def react_test(ctx):
     await ctx.channel.send("{} ".format(men(ctx).mention) + subject + " " + teacher + " 선생님 수업입니다.\n기타 링크 : " + url)
     '''  # 이 주석또한 embed 오류임. 테스트용
     i = "20:00:00"
-    await sends(ctx, i() + "로 알람 설정되었습니다.")
+    await sends(ctx, i + "로 알람 설정되었습니다.")
     a = True
     while a:
         await asyncio.sleep(1)
         timeSet()
-        if str(MyClass.st) == i():
+        if str(MyClass.st) == i:
             await sends(ctx, "지정된 시간이 되었습니다.")
             a = False
 
