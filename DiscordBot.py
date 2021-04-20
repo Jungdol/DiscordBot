@@ -54,10 +54,10 @@ async def timeCheck(a, time):
             period = i + 1  # period 를 i+1로 넣은 후 (1~6교시인데, 0~5이기에 하나 더함)
             await embedSends(a, days(True), str(period))  # 현재 요일, 교시를 embedSends 에 보내며 호출
 
-    if time == str(ttb.SEVENTH_TIME) and str(days(True)) != "Fri":  # 금요일은 6교시이기 때문에 and 사용
+    if time == str(ttb.SEVENTH_TIME) and (str(days(True)) != "Fri"):  # 금요일은 6교시이기 때문에 and 사용
         period = "7"
         await embedSends(a, days(True), period)
-    if time == str(ttb.PM_TIME) and str(days(True)) != "Fri":  # 위와 같이 금요일은 6교시라서 금요일은 종례 알람 꺼놓음
+    if time == str(ttb.PM_TIME) and (str(days(True)) != "Fri"):  # 위와 같이 금요일은 6교시라서 금요일은 종례 알람 꺼놓음
         await sends(a, str("{} 종례 시간입니다. 밴드 종례 출석체크 해주세요\n링크 : 링크".format(men(a).mention)))  # 종례 시간 일 시 공지
 
 
@@ -106,7 +106,7 @@ async def Timetable(ctx):
         await asyncio.sleep(1)  # 1초 딜레이
         timeSet()  # 1초마다 시간 업데이트
         await timeCheck(ctx, str(MyClass.st))
-        if MyClass.st == str(ttb.SEVENTH_TIME) and str(days(True)) == "Fri":  # 금요일 6교시 끝나고 5분 뒤 알람 종료
+        if MyClass.st == str(ttb.SEVENTH_TIME) and (str(days(True)) == "Fri"):  # 금요일 6교시 끝나고 5분 뒤 알람 종료
             await sends(ctx, "온라인 수업 공지 종료합니다.")
             break
         elif not MyClass.isTimetableStop:  # stop 명령어를 사용 시 (isTimeTableStop == False) 반복문 빠져나감.
