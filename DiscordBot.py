@@ -41,42 +41,6 @@ def timeSet():
     return MyClass.st  # 함수를 실행하면 시간:분:초 리턴
 
 
-async def sends(a, b):
-    return await a.channel.send(b)  # ctx.channel.send("할 말")인데, 줄이기 위해서 함수화
-
-
-async def timeCheck(a, time):
-    if time == str(ttb.AM_TIME):  # 조례 시간일 시 공지
-        await sends(a, str("{} 조례 줌 들어오세요\n링크 : 줌 링크".format(men(a).mention)))
-
-    for i in range(0, 5):  # 0~5까지 반복 총 6번 반복 -> 1~6교시
-        if time == ttb.All_TIME(i):  # 만약 현재 시간이 모든 교시 시간과 같으면
-            period = i + 1  # period 를 i+1로 넣은 후 (1~6교시인데, 0~5이기에 하나 더함)
-            await embedSends(a, days(True), str(period))  # 현재 요일, 교시를 embedSends 에 보내며 호출
-
-    if time == str(ttb.SEVENTH_TIME) and (str(days(True)) != "Fri"):  # 금요일은 6교시이기 때문에 and 사용
-        period = "7"
-        await embedSends(a, days(True), period)
-    if time == str(ttb.PM_TIME) and (str(days(True)) != "Fri"):  # 위와 같이 금요일은 6교시라서 금요일은 종례 알람 꺼놓음
-        await sends(a, str("{} 종례 시간입니다. 밴드 종례 출석체크 해주세요\n링크 : 링크".format(men(a).mention)))  # 종례 시간 일 시 공지
-
-
-async def examCheck(a):
-    for i in range(0, 2):  # 지금 날짜가 1, 2학기 중간고시, 기말고시 인지 확인
-        if MyClass.dd == (ttb.FIRST_MIDTERM_EXAMINATION(i) or ttb.SECOND_MIDTERM_EXAMINATION(i)) != (ttb.FIRST_MIDTERM_EXAMINATION(2) or ttb.FIRST_FINAL_EXAMINATION(2)):  # 1학기 중간, 2학기 중간고사 날짜 체크
-            await sends(a, "오늘은 중간고사 " + str((i + 1)) + "일차 입니다. 좋은 성적 거두시길 바랍니다.")
-        elif MyClass.dd == (ttb.FIRST_MIDTERM_EXAMINATION(2) or ttb.FIRST_FINAL_EXAMINATION(2)):
-            await sends(a, "오늘은 중간고사 마지막 날입니다. 마지막까지 힘내시길 바랍니다!")
-
-        if MyClass.dd == ttb.FIRST_FINAL_EXAMINATION(2):  # 1학기 기말고사 마지막 날 체크
-            await sends(a, "오늘은 기말고사 마지막 날입니다. 마지막까지 힘내시길 바랍니다!")
-
-        if MyClass.dd == (ttb.SECOND_FINAL_EXAMINATION(i) or ttb.FIRST_FINAL_EXAMINATION(i)) != ttb.SECOND_FINAL_EXAMINATION(2):  # 1, 2학기 기말고사 체크
-            await sends(a, "오늘은 기말고사 " + str((i + 1)) + "일차 입니다. 좋은 성적 거두시길 바랍니다.")
-        elif MyClass.dd == ttb.SECOND_FINAL_EXAMINATION(2):  # 2학기 기말고사 마지막 날 체크
-            await sends(a, "2학년 마지막 시험입니다. 끝나고 맘껏 놀아주세요 ㅎㅎ")
-
-
 async def embedSends(a, day, period):
     embed = discord.Embed(title="메인 제목", color=0x62c1cc)  # Embed 의 기본 틀(색상, 메인 제목, 설명)을 잡아줌
 
@@ -94,6 +58,42 @@ async def embedSends(a, day, period):
     embed.add_field(name="기타 링크", value=str(url), inline=False)
     await a.channel.send(embed=embed)'''  # embed 를 포함 한 채로 메시지를 전송합니다.
     return None
+
+
+async def sends(a, b):
+    return await a.channel.send(b)  # ctx.channel.send("할 말")인데, 줄이기 위해서 함수화
+
+
+async def timeCheck(a, time):
+    if time == str(ttb.AM_TIME):  # 조례 시간일 시 공지
+        await sends(a, str("{} 조례 줌 들어오세요\n링크 : 줌 링크".format(men(a).mention)))
+
+    for i in range(0, 6):  # 0~5까지 반복 총 6번 반복 -> 1~6교시
+        if time == ttb.All_TIME(i):  # 만약 현재 시간이 모든 교시 시간과 같으면
+            period = i + 1  # period 를 i+1로 넣은 후 (1~6교시인데, 0~5이기에 하나 더함)
+            await embedSends(a, days(True), str(period))  # 현재 요일, 교시를 embedSends 에 보내며 호출
+
+    if (time == str(ttb.SEVENTH_TIME)) and (str(days(True)) != "Fri"):  # 금요일은 6교시이기 때문에 and 사용
+        period = "7"
+        await embedSends(a, days(True), period)
+    if (time == str(ttb.PM_TIME)) and (str(days(True)) != "Fri"):  # 위와 같이 금요일은 6교시라서 금요일은 종례 알람 꺼놓음
+        await sends(a, str("{} 종례 시간입니다. 밴드 종례 출석체크 해주세요\n링크 : 링크".format(men(a).mention)))  # 종례 시간 일 시 공지
+
+
+async def examCheck(a):
+    for i in range(0, 2):  # 지금 날짜가 1, 2학기 중간고시, 기말고시 인지 확인
+        if MyClass.dd == (ttb.FIRST_MIDTERM_EXAMINATION(i) or ttb.SECOND_MIDTERM_EXAMINATION(i)) != (ttb.FIRST_MIDTERM_EXAMINATION(2) or ttb.FIRST_FINAL_EXAMINATION(2)):  # 1학기 중간, 2학기 중간고사 날짜 체크
+            await sends(a, "오늘은 중간고사 " + str((i + 1)) + "일차 입니다. 좋은 성적 거두시길 바랍니다.")
+        elif MyClass.dd == (ttb.FIRST_MIDTERM_EXAMINATION(2) or ttb.FIRST_FINAL_EXAMINATION(2)):
+            await sends(a, "오늘은 중간고사 마지막 날입니다. 마지막까지 힘내시길 바랍니다!")
+
+        if MyClass.dd == ttb.FIRST_FINAL_EXAMINATION(2):  # 1학기 기말고사 마지막 날 체크
+            await sends(a, "오늘은 기말고사 마지막 날입니다. 마지막까지 힘내시길 바랍니다!")
+
+        if MyClass.dd == (ttb.SECOND_FINAL_EXAMINATION(i) or ttb.FIRST_FINAL_EXAMINATION(i)) != ttb.SECOND_FINAL_EXAMINATION(2):  # 1, 2학기 기말고사 체크
+            await sends(a, "오늘은 기말고사 " + str((i + 1)) + "일차 입니다. 좋은 성적 거두시길 바랍니다.")
+        elif MyClass.dd == ttb.SECOND_FINAL_EXAMINATION(2):  # 2학기 기말고사 마지막 날 체크
+            await sends(a, "2학년 마지막 시험입니다. 끝나고 맘껏 놀아주세요 ㅎㅎ")
 
 
 @bot.command(name="TimeStart")
