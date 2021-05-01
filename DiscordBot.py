@@ -6,7 +6,7 @@ import load_json_variable as variable
 import Timetable as ttb
 import os
 
-prefix = "*"  # 명령어 맨 앞에 붙여야 실행됨
+prefix = "!"  # 명령어 맨 앞에 붙여야 실행됨
 bot = commands.Bot(command_prefix=prefix)
 
 
@@ -152,7 +152,7 @@ async def react_test(ctx):
     # return None
 
 
-@bot.command(name="stop")  # stop 명령어 실행 시 isTimetableStop = False 로 하여 시간 공지 멈춤 (반복문 break)
+@bot.command(name="TimeStop")  # stop 명령어 실행 시 isTimetableStop = False 로 하여 시간 공지 멈춤 (반복문 break)
 async def stop(ctx):
     MyClass.isTimetableStop = False
     await sends(ctx, "시간표 공지를 취소했습니다.\nTimetable : " + str(MyClass.isTimetableStop))
