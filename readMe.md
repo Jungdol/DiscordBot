@@ -12,22 +12,22 @@
 꼭 형식에 맞게 넣어주세요. 예 : date = {"2021-04-26", "2021-04-27", "2021-04-28"}<br>
 yyyy-mm-dd 형식<br>
 만약 중간, 기말이 없으면 영원히 안 올 시간대로 따옴표 부분만 바꿔주세요.<br>
-date = {"2099-12-29", "2099-12-30", "2099-12-31"}<br>
+date = {"2099-12-29", "2099-12-30", "2099-12-31"}
 <br><br>
 코딩 좀 다룰 줄 아는 분들은<br>
 DiscordBot.py 내에<br>
 def examCheck(a): ... 생략<br>
 아래쪽에 보면 for문 있는데<br>
 for i in range(0, 2):  # 지금 날짜가 1, 2학기 중간고시, 기말고시 인지 확인<br>
-for문 부분을 싹 지워주시면 됩니다.<br>
+for문 부분을 싹 지워주시면 됩니다.
 <br><br>
-저장 한 후<br>
+저장 한 후
 <br><br>
 DiscordBot.py에 들어가시면<br>
 def men(a): ... 생략<br>
 이 부분이 보일텐데 이 부분은 멘션하는 함수입니다.<br>
 저 부분을 재량껏 바꾸시면 해당 멘션으로 호출합니다.<br>
-구글링해서 찾은 후 수정하세요.<br>
+구글링해서 찾은 후 수정하세요.
 <br><br>
  스크롤을 조금만 하시면
 @bot.command(name="TimeStart")<br>
@@ -39,9 +39,9 @@ def timeCheck(a): ... 생략<br>
 <br>
 스크롤을 좀 내려서<br>
 @bot.command(name="TimeStart")<br>
-async def Timetable(ctx): ... 생략<br>
+async def Timetable(ctx): ... 생략
 <br><br>
-부분에<br>
+부분에
 <br><br>
 timeCheck(ctx)<br>
         if (MyClass.st == str(ttb.SEVENTH_TIME)) and str(days(True)) == "Fri":  # 금요일 6교시 끝나고 5분 뒤 알람 종료<br>
