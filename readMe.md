@@ -44,14 +44,15 @@ async def Timetable(ctx): ... 생략
 부분에
 
 timeCheck(ctx)
-        if (MyClass.st == str(ttb.SEVENTH_TIME)) and str(days(True)) == "Fri":  # 금요일 6교시 끝나고 5분 뒤 알람 종료
-            await sends(ctx, "온라인 수업 공지 종료합니다.")
-            break
-        elif not MyClass.isTimetableStop:  # stop 명령어를 사용 시 (isTimeTableStop == False) 반복문 빠져나감.
-            break
-        if str(MyClass.st) == "00:00:00":  # 자정일 시 days 실행 (요일 업데이트)
-            days(False)
+        if (MyClass.st == str(ttb.SEVENTH_TIME)) and str(days(True)) == "Fri":  # 금요일 6교시 끝나고 5분 뒤 알람 종료<br>
+            await sends(ctx, "온라인 수업 공지 종료합니다.")<br>
+            break<br>
+        elif not MyClass.isTimetableStop:  # stop 명령어를 사용 시 (isTimeTableStop == False) 반복문 빠져나감.<br>
+            break<br>
+        if str(MyClass.st) == "00:00:00":  # 자정일 시 days 실행 (요일 업데이트)<br>
+            days(False)<br>
 
 이렇게 되어 있는 부분은 파이썬을 이해하신다면 break 때문입니다.
 이 부분에 금요일 6교시 공지 종료하는 부분과 반복문 종료가 있는데
 재량껏 바꿔주세요.
+실행 명령어는 TimeStart, 종료는 stop 입니다.
