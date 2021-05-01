@@ -52,7 +52,7 @@ timeCheck(ctx)
         if str(MyClass.st) == "00:00:00":  # 자정일 시 days 실행 (요일 업데이트)<br>
             days(False)<br>
 
-이렇게 되어 있는 부분은 파이썬을 이해하신다면 break 때문입니다.
+이렇게 되어 있는 부분은 파이썬을 이해하신다면 break 때문입니다.<br>
 이 부분에 금요일 6교시 공지 종료하는 부분과 반복문 종료가 있는데
 재량껏 바꿔주세요.
-실행 명령어는 TimeStart, 종료는 stop 입니다.
+실행 명령어는 !TimeStart, 종료는 !stop 입니다.
