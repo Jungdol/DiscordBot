@@ -44,7 +44,7 @@ async def Timetable(ctx): ... 생략
 부분에
 
 timeCheck(ctx)
-        if MyClass.st == str(ttb.SEVENTH_TIME) and str(days(True)) == "Fri":  # 금요일 6교시 끝나고 5분 뒤 알람 종료
+        if (MyClass.st == str(ttb.SEVENTH_TIME)) and str(days(True)) == "Fri":  # 금요일 6교시 끝나고 5분 뒤 알람 종료
             await sends(ctx, "온라인 수업 공지 종료합니다.")
             break
         elif not MyClass.isTimetableStop:  # stop 명령어를 사용 시 (isTimeTableStop == False) 반복문 빠져나감.
