@@ -5,7 +5,7 @@
 **과도한 API를 불러온다는 것 같은데 정확한 오류를 찾으면 수정하겠습니다.**
 <br><br>
 먼저 python 3.8.5를 기준으로 프로그래밍 하였습니다.<br>
-cmd를 관리자로 실행한 후
+cmd를 관리자로 실행한 후<br>
 pip install discord<br>
 pip install asyncio<br>
 로 다운해주세요.
