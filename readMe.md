@@ -55,7 +55,8 @@ def men(a):  # 멘션 기능 (저희 학과 채널은 2-8, 2-9로 운영)
 ```
 ![image](https://user-images.githubusercontent.com/61561973/116888398-63722a00-ac66-11eb-91c9-91af1fc8e166.png)
 <br><br>
-이렇게 name 부분에 역할이름만 똑같게 변경하시면 됩니다.<br>
+이렇게 name 부분에 역할이름만 똑같게 변경하시면 됩니다.
+<br><br>
 이제 스크롤을 조금만 하시면
 @bot.command(name="TimeStart")<br>
 def timeCheck(a): ... 생략<br>
