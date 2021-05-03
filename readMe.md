@@ -24,10 +24,18 @@ for문 부분을 싹 지워주시면 됩니다.
 저장 한 후
 <br><br>
 DiscordBot.py에 들어가시면<br>
-def men(a): ... 생략<br>
+```
+def men(a):  # 멘션 기능 (저희 학과 채널은 2-8, 2-9로 운영)
+    secondGradeClassSix = discord.utils.get(a.guild.roles, name="2-9")
+    return secondGradeClassSix
+```
+
 이 부분이 보일텐데 이 부분은 멘션하는 함수입니다.<br>
-저 부분을 재량껏 바꾸시면 해당 멘션으로 호출합니다.<br>
-구글링해서 찾은 후 수정하세요.
+저 부분을 디스코드에 있는 역할로 바꾸시면 해당 멘션으로 호출합니다.<br>
+구글링해서 찾은 후 수정해주세요.<br>
+현재 저희 학과 채널 역할
+![image](https://user-images.githubusercontent.com/61561973/116888398-63722a00-ac66-11eb-91c9-91af1fc8e166.png)
+
 <br><br>
  스크롤을 조금만 하시면
 @bot.command(name="TimeStart")<br>
