@@ -3,10 +3,16 @@
 <br><br>
 **Discord API가 업데이트 되면서 오류가 발생했습니다.**
 <br><br>
-처음 실행하기 전 jsonSetting 폴더에 들어가 readMe.txt를 읽어보시고 Timetable.json을 생성한 후<br>
+처음 실행하기 전 jsonSetting 폴더에 들어가 readMe.md를 읽어보시고 Timetable.json을 생성한 후<br>
 이 메모장이 있는 폴더 내에 json 파일을 옮겨주세요.
 <br><br>
-이후 Timetable.py 부분에 들어가 def 어쩌구 안 return 부분의 쌍따옴표 안에 있는 시간을 바꿔주세요.
+이후 Timetable.py 부분에 들어가 def All_TIME period = 부분에 자신이 공지하고 싶은 시간으로 변경해주세요.<br>
+저는 쉬는시간 5분 남을 때 공지합니다.<br>
+```
+def All_TIME(i):
+    period = ["08:25:00", "09:20:00", "10:15:00", "11:10:00", "13:15:00", "14:10:00"]
+    return period[i]
+```
 <br><br>
 그리고 아래 보시면 중간, 기말고사 날짜도 있는데 date = {} 안에 있는 날짜를 변경해주세요.<br>
 꼭 형식에 맞게 넣어주세요. 예 : date = {"2021-04-26", "2021-04-27", "2021-04-28"}<br>
