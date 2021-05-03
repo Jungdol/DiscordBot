@@ -34,7 +34,7 @@ def men(a): ... 생략<br>
 def timeCheck(a): ... 생략<br>
 부분이 보일겁니다. 그 안의 부분만 수정하시면 됩니다.<br>
 최대한 모든 부분에 주석처리를 해놓았으니 그걸 보시고 수정하시면 됩니다.<br>
-또한 현재 파일은 월-목은 1~7교시, 금요일은 1~6교시까지 인데 이건 직접 수정하셔야 돼요.<br>
+또한 현재 파일은 월-목은 1-7교시, 금요일은 1-6교시까지 인데 이건 직접 수정하셔야 돼요.<br>
 주석을 충분히 많이 해놓았으니 충분히 수정하실 수 있을 겁니다.<br>
 <br>
 스크롤을 좀 내려서<br>
@@ -43,14 +43,14 @@ async def Timetable(ctx): ... 생략
 <br><br>
 부분에
 <br><br>
-timeCheck(ctx)<br>
+```timeCheck(ctx)<br>
         if (MyClass.st == str(ttb.SEVENTH_TIME)) and str(days(True)) == "Fri":  # 금요일 6교시 끝나고 5분 뒤 알람 종료<br>
             await sends(ctx, "온라인 수업 공지 종료합니다.")<br>
             break<br>
         elif not MyClass.isTimetableStop:  # stop 명령어를 사용 시 (isTimeTableStop == False) 반복문 빠져나감.<br>
             break<br>
         if str(MyClass.st) == "00:00:00":  # 자정일 시 days 실행 (요일 업데이트)<br>
-            days(False)<br>
+            days(False)<br>```
 
 이렇게 되어 있는 부분은 파이썬을 이해하신다면 break 때문입니다.<br>
 이 부분에 금요일 6교시 공지 종료하는 부분과 반복문 종료가 있는데 재량껏 바꿔주세요.<br>
