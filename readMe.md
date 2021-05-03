@@ -11,7 +11,7 @@ pip install asyncio<br>
 로 다운해주세요.
 <br><br>
 처음 실행하기 전 jsonSetting 폴더에 들어가 readMe.md를 읽어보시고 Timetable.json을 생성한 후<br>
-이 메모장이 있는 폴더 내에 json 파일을 옮겨주세요.
+DiscordBot.py 폴더 내에 json 파일을 옮겨주세요.
 <br><br>
 이후 Timetable.py 부분에 들어가 def All_TIME period = 부분에 자신이 공지하고 싶은 시간으로 변경해주세요.<br>
 저는 쉬는시간 5분 남을 때 공지합니다.<br>
