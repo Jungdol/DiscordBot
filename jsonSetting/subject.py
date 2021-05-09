@@ -54,11 +54,11 @@ def Science():  # 과학
     return subjects("과목 이름", "담당 선생님", "진행 방식 (Zoom, Google Meet)", "Zoom, Google Meet 링크")
 
 
-def SmartCultureAppContentsProduction():  # 스마트문화엡콘텐츠 제작 (유서영 선생님)
+def SmartCultureAppContentsProduction():  # 스마트문화엡콘텐츠 제작1
     return subjects("과목 이름", "담당 선생님", "진행 방식 (Zoom, Google Meet)", "Zoom, Google Meet 링크")
 
 
-def SmartCultureAppContentsProduction2():  # 스마트문화앱콘텐츠 제작 (오현지 선생님)
+def SmartCultureAppContentsProduction2():  # 스마트문화앱콘텐츠 제작2
     return subjects("과목 이름", "담당 선생님", "진행 방식 (Zoom, Google Meet)", "Zoom, Google Meet 링크")
 
 
