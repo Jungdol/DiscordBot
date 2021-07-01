@@ -45,17 +45,10 @@ async def embedSends(a, day, period):
 
     subject = str(variable.json_data[day][period]["name"])  # Timetable.json 안의 요일, 교시 오브젝트 안 과목 이름
     teacher = str(variable.json_data[day][period]["teacher"])  # Timetable.json 안의 요일, 교시 오브젝트 안 선생님 이름
-    how = str(variable.json_data[day][period]["how"])  # Timetable.json 안의 요일, 교시 오브젝트 안 온라인 진행방식 (Zoom, Google Meet)
+    # how = str(variable.json_data[day][period]["how"])  # Timetable.json 안의 요일, 교시 오브젝트 안 온라인 진행방식 (Zoom, Google Meet)
     url = str(variable.json_data[day][period]["url"])  # Timetable.json 안의 요일, 교시 오브젝트 안 링크
 
     await sends(a, "{} ".format(men(a).mention) + str(subject) + " 5분뒤 " + str(teacher) + " 선생님 수업입니다.\n링크 : " + url)
-    # 주석 부분은 embed 에 오류나서 감싸놓음. 변경방법 아시면 주석 풀고 쓰세요 (블로그 댓글로 해결방법도 올려주세요..)
-    '''embed.add_field(name="과목", value=str(subject), inline=False)
-    embed.add_field(name="담당 선생님", value=str(teacher), inline=False)
-    embed.add_field(name="수업 방법", value=str(how), inline=False)
-    embed.set_footer(text="Google Meet 링크는 변경되기에 없습니다.")
-    embed.add_field(name="기타 링크", value=str(url), inline=False)
-    await a.channel.send(embed=embed)'''  # embed 를 포함 한 채로 메시지를 전송합니다.
     return None
 
 
@@ -125,32 +118,7 @@ async def on_ready():  # 봇이 처음 시작 시, 재로딩 시 시작
     await bot.change_presence(status=discord.Status.online, activity=game)
     print("READY")
 
-
-@bot.command(name="test")  # 그냥 테스트
-async def react_test(ctx):
-    # 유저가 요청했던 채널로 전송합니다.
-    '''day = "Mon"
-    period = "2"
-    subject = str(variable.json_data[day][period]["name"])
-    teacher = str(variable.json_data[day][period]["teacher"])
-    how = str(variable.json_data[day][period]["how"])
-    url = str(variable.json_data[day][period]["url"])
-    # await embedSends("{}".format(men(ctx).mention)+ctx, day, period)
-    await ctx.channel.send("{} ".format(men(ctx).mention) + subject + " " + teacher + " 선생님 수업입니다.\n기타 링크 : " + url)
-    '''  # 이 주석또한 embed 오류임. 테스트용
-    i = "20:00:00"
-    await sends(ctx, i + "로 알람 설정되었습니다.")
-    a = True
-    while a:
-        await asyncio.sleep(1)
-        timeSet()
-        if str(MyClass.st) == i:
-            await sends(ctx, "지정된 시간이 되었습니다.")
-            a = False
-
-    # return None
-
-
+    
 @bot.command(name="TimeStop")  # stop 명령어 실행 시 isTimetableStop = False 로 하여 시간 공지 멈춤 (반복문 break)
 async def stop(ctx):
     MyClass.isTimetableStop = False
