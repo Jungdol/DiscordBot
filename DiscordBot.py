@@ -16,6 +16,7 @@ class MyClass:  # 모든 곳에 쓰여야 하기에 class 화
     tn = datetime.datetime.now()
     st = tn.strftime("%H:%M:%S")
     dd = tn.strftime('%Y-%m-%d')
+    ss = tn.strftime("%S")
     pass
 
 
@@ -35,8 +36,10 @@ def days(isReturn):  # days()는 실행 시의 요일
 def timeSet():
     MyClass.tn = datetime.datetime.now()
     MyClass.st = MyClass.tn.strftime("%H:%M:%S")  # "시간:분:초"로 출력 예 : 22:00:01
+    MyClass.ss = MyClass.tn.strftime("%S")  # 무분별한 업데이트를 막기 위한 초만 반환 -> 00 01 02 ...
 
     print(MyClass.st)  # 실행하면 시간:분:초 출력
+    print(MyClass.ss)  # 초단위로 출력
     return MyClass.st  # 함수를 실행하면 시간:분:초 리턴
 
 
@@ -72,31 +75,23 @@ async def timeCheck(a, time):
         await sends(a, str("{} 종례 시간입니다. 밴드 종례 출석체크 해주세요\n링크 : 링크".format(men(a).mention)))  # 종례 시간 일 시 공지
 
 
-async def examCheck(a):
-    for i in range(0, 2):  # 지금 날짜가 1, 2학기 중간고시, 기말고시 인지 확인
-        if MyClass.dd == (ttb.FIRST_MIDTERM_EXAMINATION(i) or ttb.SECOND_MIDTERM_EXAMINATION(i)) != (ttb.FIRST_MIDTERM_EXAMINATION(2) or ttb.FIRST_FINAL_EXAMINATION(2)):  # 1학기 중간, 2학기 중간고사 날짜 체크
-            await sends(a, "오늘은 중간고사 " + str((i + 1)) + "일차 입니다. 좋은 성적 거두시길 바랍니다.")
-        elif MyClass.dd == (ttb.FIRST_MIDTERM_EXAMINATION(2) or ttb.FIRST_FINAL_EXAMINATION(2)):
-            await sends(a, "오늘은 중간고사 마지막 날입니다. 마지막까지 힘내시길 바랍니다!")
-
-        if MyClass.dd == ttb.FIRST_FINAL_EXAMINATION(2):  # 1학기 기말고사 마지막 날 체크
-            await sends(a, "오늘은 기말고사 마지막 날입니다. 마지막까지 힘내시길 바랍니다!")
-
-        if MyClass.dd == (ttb.SECOND_FINAL_EXAMINATION(i) or ttb.FIRST_FINAL_EXAMINATION(i)) != ttb.SECOND_FINAL_EXAMINATION(2):  # 1, 2학기 기말고사 체크
-            await sends(a, "오늘은 기말고사 " + str((i + 1)) + "일차 입니다. 좋은 성적 거두시길 바랍니다.")
-        elif MyClass.dd == ttb.SECOND_FINAL_EXAMINATION(2):  # 2학기 기말고사 마지막 날 체크
-            await sends(a, "2학년 마지막 시험입니다. 끝나고 맘껏 놀아주세요 ㅎㅎ")
-
-
 @bot.command(name="TimeStart")
 async def Timetable(ctx):
+    isOneMin = False
     await ctx.channel.purge(limit=1)  # 명령어 실행한 메세지 삭제
     # 해당 명령어 시작 시 나오는 문구
     await sends(ctx, "시간표 공지 시작합니다.")
     MyClass.isTimetableStop = True
+    MyClass.isTimetableStop = True
     while True:
-        await asyncio.sleep(1)  # 1초 딜레이
-        timeSet()  # 1초마다 시간 업데이트
+        if isOneMin:  # is OneMin == True
+            await asyncio.sleep(60)  # 60초 딜레이 (1분)
+            timeSet()  # 60초마다 시간 업데이트 (1분)
+        elif not isOneMin:
+            await asyncio.sleep(1)  # 1초 딜레이
+            timeSet()  # 1초마다 시간 업데이트
+            if MyClass.ss == "00":  # 초가 00이면 (60초면)
+                isOneMin = True
         await timeCheck(ctx, str(MyClass.st))
         if MyClass.st == str(ttb.SEVENTH_TIME) and (str(days(True)) == "Fri"):  # 금요일 6교시 끝나고 5분 뒤 알람 종료
             await sends(ctx, "온라인 수업 공지 종료합니다.")
@@ -105,8 +100,6 @@ async def Timetable(ctx):
             break
         if str(MyClass.st) == "00:00:00":  # 자정일 시 days 실행 (요일 업데이트)
             days(False)
-
-        await examCheck(ctx)
 
 
 @bot.event
