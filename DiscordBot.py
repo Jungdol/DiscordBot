@@ -90,17 +90,19 @@ async def Timetable(ctx):
     await sends(ctx, "시간표 공지 시작합니다.")
     MyClass.isTimetableStop = True
     MyClass.isTimetableStop = True
+
     while True:
         if isOneMin:  # is OneMin == True
             await asyncio.sleep(60)  # 60초 딜레이 (1분)
             timeSet()  # 60초마다 시간 업데이트 (1분)
+            if MyClass.ss != "00":
+                isOneMin = False
         elif not isOneMin:
             await asyncio.sleep(1)  # 1초 딜레이
             timeSet()  # 1초마다 시간 업데이트
             if MyClass.ss == "00":  # 초가 00이면 (60초면)
                 isOneMin = True
-            elif MyClass.ss != "00":
-                isOneMin = False
+
         await timeCheck(ctx, MyClass.st)
         if (MyClass.st == ttb.All_TIME(6)) and (str(days(True)) == "Fri"):  # 금요일 6교시 끝나고 5분 뒤 알람 종료
             await sends(ctx, "온라인 수업 공지 종료합니다.")
