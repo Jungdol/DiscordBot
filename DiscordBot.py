@@ -134,6 +134,7 @@ async def stop(ctx):
 async def JsonReload(ctx):
     await ctx.channel.send("시간표 리로드 중..")
     importlib.reload(variable)
+    importlib.reload(ttb)
     await ctx.channel.send("시간표 리로드 완료")
 
 
