@@ -77,7 +77,8 @@ timeCheck(ctx)
 실행 명령어는 !TimeStart, 종료는 !stop 입니다.
 <br><br>
 리로드 명령어도 있습니다. !reload<br>
-시간표 변경 시 Timetable.json 파일을 교체 후 디스코드 채널 내에서 !reload 입력하시면 됩니다.<br>
+시간표 변경 시 Timetable.json 파일을 교체 후 디스코드 채널 내에서 !reload 입력하시면 됩니다.
+<br><br>
 시간표 변경 확인 용으로 !confirm 이 있습니다.<br>
 !confirm 요일 입력하시면 해당 요일이 1교시부터 7교시까지 메시지로 출력됩니다. 요일은 축약어로 입력하셔야 됩니다.<br>
 예 : !confirm Mon
