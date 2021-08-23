@@ -11,9 +11,9 @@ def All_TIME(i):
 # 시간표 끝 (종례)
 def PM_TIME(state):  # 종례 시간
     if state == "default":
-        return "13:00:15"
+        return "15:55:00"
     elif state == "friday":
-        return "12:20:15"
+        return "15:00:00"
 
 
 # 공휴일, 재량휴업일
