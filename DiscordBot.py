@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import datetime
 import asyncio
+import importlib
 import load_json_variable as variable
 import Timetable as ttb
 
@@ -127,6 +128,22 @@ async def on_ready():  # 봇이 처음 시작 시, 재로딩 시 시작
 async def stop(ctx):
     MyClass.isTimetableStop = False
     await sends(ctx, "시간표 공지를 취소했습니다.\nTimetable : " + str(MyClass.isTimetableStop))
+
+
+@bot.command(name="reload")
+async def JsonReload(ctx):
+    await ctx.channel.send("시간표 리로드 중..")
+    importlib.reload(variable)
+    await ctx.channel.send("시간표 리로드 완료")
+
+
+@bot.command(name="confirm")
+async def react_test(ctx, days:str):
+    # 유저가 요청했던 채널로 전송합니다.
+    for i in range(1, 8):
+        await embedSends(ctx, days, str(i))
+
+    return None
 
 
 @bot.command(name="timeNow")  # 현재 시간 출력
