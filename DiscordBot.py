@@ -66,7 +66,7 @@ async def sends(a, b):
 
 async def timeCheck(a, time):
     if time == str(ttb.AM_TIME):  # 조례 시간일 시 공지
-        await sends(a, str("{} " + morning_sends.format(men(a).mention)))
+        await sends(a, str("{} ".format(men(a).mention) + morning_sends))
 
     for i in range(0, 6):  # 0~5까지 반복 총 6번 반복 -> 1~6교시
         if time == ttb.All_TIME(i):  # 만약 현재 시간이 모든 교시 시간과 같으면
@@ -82,9 +82,9 @@ async def timeCheck(a, time):
             await embedSends(a, days(True), str(period))
 
         if (time == ttb.PM_TIME("default")) and (days(True) != "Fri"):  # 위와 같이 금요일은 6교시라서 금요일은 종례 알람 꺼놓음
-            await sends(a, str("{} " + afternoon_sends.format(men(a).mention)))  # 종례 시간 일 시 공지
+            await sends(a, str("{} ".format(men(a).mention) + afternoon_sends))  # 종례 시간 일 시 공지
         if (time == ttb.PM_TIME("friday")) and (days(True) == "Fri"):  # 금요일 종례 알람
-            await sends(a, str("{} " + afternoon_sends.format(men(a).mention)))  # 종례 시간 일 시 공지
+            await sends(a, str("{} ".format(men(a).mention) + afternoon_sends))  # 종례 시간 일 시 공지
 
 
 @bot.command(name="start")
@@ -93,7 +93,6 @@ async def Timetable(ctx):
     await ctx.channel.purge(limit=1)  # 명령어 실행한 메세지 삭제
     # 해당 명령어 시작 시 나오는 문구
     await sends(ctx, "시간표 공지 시작합니다.")
-    MainTime.isTimetableStop = True
     MainTime.isTimetableStop = True
 
     while True:
@@ -112,10 +111,10 @@ async def Timetable(ctx):
 
         if (MainTime.st == ttb.All_TIME(6)) and (str(days(True)) == "Fri"):  # 금요일 6교시 끝나고 5분 뒤 알람 종료
             await sends(ctx, "온라인 수업 공지 종료합니다.")
-            break
+            return None
 
         if not MainTime.isTimetableStop:  # stop 명령어를 사용 시 (isTimeTableStop == False) 반복문 빠져나감.
-            break
+            return None
         if str(MainTime.st) == "00:00:00":  # 자정일 시 days 실행 (요일 업데이트)
             days(False)
 
@@ -130,10 +129,11 @@ async def on_ready():  # 봇이 처음 시작 시, 재로딩 시 시작
     print("READY")
 
 
-@bot.command(name="stop")  # stop 명령어 실행 시 isTimetableStop = False 로 하여 시간 공지 멈춤 (반복문 break)
+@bot.command(name="stop")  # stop 명령어 실행 시 isTimetableStop = False 로 하여 시간 공지 멈춤 (반복문 return none)
 async def stop(ctx):
     MainTime.isTimetableStop = False
     await sends(ctx, "시간표 공지를 취소했습니다.\nTimetable : " + str(MainTime.isTimetableStop))
+    return None
 
 
 @bot.command(name="reload")
