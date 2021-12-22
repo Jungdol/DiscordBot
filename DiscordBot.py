@@ -142,6 +142,7 @@ async def JsonReload(ctx):
     importlib.reload(variable)
     importlib.reload(ttb)
     await ctx.channel.send("시간표 리로드 완료")
+    return None
 
 
 @bot.command(name="confirm")
