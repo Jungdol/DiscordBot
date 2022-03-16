@@ -22,10 +22,6 @@ class MainTime:  # 모든 곳에 쓰여야 하기에 class 화
     pass
 
 
-morning_sends = "조례 줌 들어오세요\n링크 : 줌 링크"  # 조례할 때 출력할 문장
-afternoon_sends = "종례 시간입니다. 밴드 종례 출석체크 해주세요."  # 종례할 때 출력할 문장
-
-
 def men(message):  # 멘션 기능 (저희 학과 채널은 3-8, 3-9로 운영) @3-9
     return discord.utils.get(message.guild.roles, name="3-9")
 
@@ -84,9 +80,9 @@ async def time_check(ctx, time):
         if type == "time_table":
             await timetable_sends(ctx, days(True), period, day_period)  # 현재 요일, 교시를 time_table_sends 에 보내며 호출
         elif type == "morning_send":
-            await sends(ctx, f'{men(ctx).mention} {morning_sends}')  # 종례 시간 일 시 공지
+            await sends(ctx, f"{men(ctx).mention} {excel.setting('morning_send_message')}")  # 종례 시간 일 시 공지
         elif type == "afternoon_send":
-            await sends(ctx, f'{men(ctx).mention} {afternoon_sends}')  # 종례 시간 일 시 공지
+            await sends(ctx, f"{men(ctx).mention} {excel.setting('afternoon_send_message')}")  # 종례 시간 일 시 공지
 
     if time == excel.day_timetable('start'):  # 조례 시간일 시 공지
         await sends_delay("morning_send")
@@ -192,7 +188,22 @@ async def info(ctx):
     await sends(ctx, f"최소 교시: {min_period}\n최대 교시: {max_period}\n"
                      f"{min_period}교시 수업: {excel.setting('minimum_period_day_list')}\n"
                      f"{max_period}교시 수업: {excel.setting('maximum_period_day_list')}\n"
-                     f"공지 종료 요일: {excel.setting('stop_notice_day')}\n공지 종료 시각: {excel.setting('stop_notice_time')}")
+                     f"공지 종료 요일: {excel.setting('stop_notice_day')}\n공지 종료 시각: {excel.setting('stop_notice_time')}\n"
+                     f"조례 시 보낼 메시지: {excel.setting('morning_send_message')}\n"
+                     f"종례 시 보낼 메시지: {excel.setting('afternoon_send_message')}")
+
+
+@bot.command(name="day_timetable")
+async def day_timetable(ctx):
+    day_timetable_sends = f"조회: {excel.day_timetable('start')}\n"
+
+    for i in range(0, excel.setting('maximum_period')):
+        day_timetable_sends += f"{i+1}교시: {excel.day_timetable('list')[i]}\n"
+
+    day_timetable_sends += (f"{excel.setting('minimum_period')}교시 종례: {excel.day_timetable('min_finish')}\n"
+                            f"{excel.setting('maximum_period')}교시 종례: {excel.day_timetable('max_finish')}")
+
+    await sends(ctx, day_timetable_sends)
 
 
 @bot.command(name="now")  # 현재 시간 출력

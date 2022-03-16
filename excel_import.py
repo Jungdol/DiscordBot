@@ -23,8 +23,13 @@ def setting(type):  # 디스코드 봇 설정값
     elif type == 'stop_notice_time':  # 공지 종료 시각 (ex:오후 2시 45분)
         return settings_df.iloc[5, 1]
 
-    elif type == 'bot_token':
+    elif type == 'morning_send_message':
         return settings_df.iloc[6, 1]
+    elif type == 'afternoon_send_message':
+        return settings_df.iloc[7, 1]
+
+    elif type == 'bot_token':
+        return settings_df.iloc[8, 1]
 
 
 def timetable(day, max_period):  # 해당 요일의 시간표, 최대 교시 리스트로 반환
@@ -37,11 +42,11 @@ def day_timetable(type):  # 일과 시간표 반환
     if type == 'start':
         return day_timetable_sheet.iloc[0, 1]
     elif type == 'list':
-        return day_timetable_sheet.loc[:setting('maximum_period'), 'Start time'].values.tolist()
+        return day_timetable_sheet.iloc[1:setting('maximum_period')+1, 1].values.tolist()
     elif type == 'min_finish':
-        return day_timetable_sheet.loc[day_timetable_sheet['period'] == 'Min Finish', 'Start time'].values
+        return day_timetable_sheet.loc[day_timetable_sheet['period'] == 'Min Finish', 'Start time'].values[0]
     elif type == 'max_finish':
-        return day_timetable_sheet.loc[day_timetable_sheet['period'] == 'Max Finish', 'Start time'].values
+        return day_timetable_sheet.loc[day_timetable_sheet['period'] == 'Max Finish', 'Start time'].values[0]
 
 
 def subject(subject_name):
