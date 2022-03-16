@@ -1,21 +1,21 @@
-질문 안받습니다. 꼭 구글링해서 찾아주세요.<br>
-그리고 디스코드 봇 추가하는 방법도 구글링해서 찾아주세요.
-<br><br>
-~~**Discord API가 업데이트 되면서 가끔식 오류가 발생합니다.**<br>
-**과도한 API를 불러온다는 것 같은데 정확한 오류를 찾으면 수정하겠습니다.**~~<br>
-**이번 디스코드 봇 V2 업데이트로 00초가 될 시 60초에 한 번 불러오게 설정하였습니다.**
-<br><br>
-먼저 python 3.8.5를 기준으로 프로그래밍 하였습니다.<br>
-cmd를 관리자로 실행한 후<br>
-pip install discord<br>
-pip install asyncio<br>
-로 다운해주세요.
-<br><br>
-처음 실행하기 전 jsonSetting 폴더에 들어가 readMe.md를 읽어보시고 Timetable.json을 생성한 후<br>
-DiscordBot.py 폴더 내에 json 파일을 옮겨주세요.
-<br><br>
-이후 Timetable.py 부분에 들어가 def All_TIME period = 부분에 자신이 공지하고 싶은 시간으로 변경해주세요.<br>
-저는 쉬는시간 5분 남을 때 공지합니다.<br>
+디스코드 봇이 V3으로 업데이트 되었습니다!
+변경사항은 다음과 같습니다
+
+조만간 수정할 예정입니다.
+```
+json 파일을 읽는 것을 가독성 있게 하기 위해 excel로 변경
+봇 설정을 setting.xlsx로 가능하게 하여 프로그래밍을 모르는 사람도 사용할 수 있음
+```
+
+```
+json이 excel로 변경된 사항
+timetable.xlsx - timetable 시트
+python 이 excel로 변경된 사항
+timetable.xlsx - day timetable 시트
+python 기능이 excel로 새로 개발된 사항
+setting.xlsx
+```
+
 ```
 def All_TIME(i):
     period = ["08:25:00", "09:20:00", "10:15:00", "11:10:00", "13:15:00", "14:10:00", "15:05:00"]  # 1교시부터 7교시까지
