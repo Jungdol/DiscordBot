@@ -1,3 +1,7 @@
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
 디스코드 봇이 V3으로 업데이트 되었습니다!<br>
 변경사항은 다음과 같습니다<br>
 
