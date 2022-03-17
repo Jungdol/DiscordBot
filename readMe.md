@@ -22,6 +22,7 @@ timetable.xlsx - day timetable 시트
 
 python 기능이 excel로 새로 개발된 사항
 setting.xlsx
+subject.xlsx
 ```
 
 
