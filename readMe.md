@@ -29,7 +29,7 @@ setting.xlsx
   <summary>목차</summary>
   <ol>
     <li>
-      <a href="#사용 방법">사용 방법</a>
+      <a href="#사용-방법">사용 방법</a>
     </li>
     <li>
       <a href="#명령어">명령어</a>
@@ -43,19 +43,19 @@ setting.xlsx
       </ul>
     </li>
     <li>
-      <a href="#초기 설정">초기 설정</a>
+      <a href="#초기-설정">초기 설정</a>
         <ul>
-          <li><a href="#봇 생성">봇 생성</a></li>
-          <li><a href="#멘션 설정">멘션 설정</a></li>
+          <li><a href="#봇-생성">봇 생성</a></li>
+          <li><a href="#멘션-설정">멘션 설정</a></li>
           <li>
-            <a href="#엑셀 파일">엑셀 파일</a>
+            <a href="#엑셀-파일">엑셀 파일</a>
             <ul>
               <li><a href="#setting.xlsx">setting.xlsx</a></li>
               <li>
                 <a href="#timetable.xlsx">timetable.xlsx</a>
                 <ul>
-                  <li><a href="#timetable sheet">timetable sheet</a></li>
-                  <li><a href="#day timetable sheet">day timetable sheet</a></li>
+                  <li><a href="#timetable-sheet">timetable sheet</a></li>
+                  <li><a href="#day timetable-sheet">day timetable sheet</a></li>
                 <ul>
               </li>
               <li><a href="#subject.xlsx">subject.xlsx</a></li>
