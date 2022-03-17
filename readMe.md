@@ -34,12 +34,12 @@ setting.xlsx
     <li>
       <a href="#명령어">명령어</a>
       <ul>
-        <li><a href="#!start">start</a></li>
-        <li><a href="#!stop">stop</a></li>
-        <li><a href="#!confirm">confirm</a></li>
-        <li><a href="#!info">info</a></li>
-        <li><a href="#!day_timetable">day_timetable</a></li>
-        <li><a href="#!now">now</a></li>
+        <li><a href="#start">start</a></li>
+        <li><a href="#stop">stop</a></li>
+        <li><a href="#confirm">confirm</a></li>
+        <li><a href="#info">info</a></li>
+        <li><a href="#day_timetable">day_timetable</a></li>
+        <li><a href="#now">now</a></li>
       </ul>
     </li>
     <li>
@@ -82,6 +82,8 @@ setting.xlsx
 
 # 명령어
 
+기본 prefix는 ! 로 설정되어 있습니다.
+  
 ## !start
 엑셀 파일 3개를 읽은 뒤 공지를 시작합니다.<br>
 ![discord com_channels_718334799541960704_948659508819935252_953683235416731678](https://user-images.githubusercontent.com/61561973/158633511-324be13d-b327-439e-8a45-336af83e273c.png)
