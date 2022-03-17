@@ -1,7 +1,7 @@
-[![Contributors][contributors-shield]][contributors-url]]
-[![Forks][forks-shield]][forks-url]]
-[![Stargazers][stars-shield]][stars-url]]
-[![Issues][issues-shield]][issues-url]]
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
 디스코드 봇이 V3으로 업데이트 되었습니다!<br>
 변경사항은 다음과 같습니다<br>
 
@@ -173,3 +173,11 @@ note: id, password가 없는 플랫폼일 때 사용(예: Google Meet 등)
 <br><br>
 이렇게 진행하시면 모든 초기 설정이 끝납니다.
 
+[contributors-shield]: https://img.shields.io/github/contributors/Jungdol/DiscordBot?style=for-the-badge
+[contributors-url]: https://github.com/Jungdol/DiscordBot/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Jungdol/DiscordBot?style=for-the-badge
+[forks-url]: https://github.com/Jungdol/DiscordBot/network/members
+[stars-shield]: https://img.shields.io/github/stars/Jungdol/DiscordBot?style=for-the-badge
+[stars-url]: https://github.com/Jungdol/DiscordBot/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Jungdol/DiscordBot?style=for-the-badge
+[issues-url]: https://github.com/Jungdol/DiscordBot/issues
