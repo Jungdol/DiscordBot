@@ -50,15 +50,15 @@ setting.xlsx
           <li>
             <a href="#엑셀-파일">엑셀 파일</a>
             <ul>
-              <li><a href="#setting.xlsx">setting.xlsx</a></li>
+              <li><a href="#settingxlsx">setting.xlsx</a></li>
               <li>
-                <a href="#timetable.xlsx">timetable.xlsx</a>
+                <a href="#timetablexlsx">timetable.xlsx</a>
                 <ul>
                   <li><a href="#timetable-sheet">timetable sheet</a></li>
-                  <li><a href="#day timetable-sheet">day timetable sheet</a></li>
-                <ul>
+                  <li><a href="#day-timetable-sheet">day timetable sheet</a></li>
+                </ul>
               </li>
-              <li><a href="#subject.xlsx">subject.xlsx</a></li>
+              <li><a href="#subjectxlsx">subject.xlsx</a></li>
             </ul>
           </li>
         </ul>
