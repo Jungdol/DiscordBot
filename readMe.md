@@ -29,7 +29,7 @@ setting.xlsx
   <summary>목차</summary>
   <ol>
     <li>
-      <a href="사용 방법">사용 방법</a>
+      <a href="#사용 방법">사용 방법</a>
     </li>
     <li>
       <a href="#명령어">명령어</a>
