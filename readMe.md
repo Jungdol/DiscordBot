@@ -23,6 +23,50 @@ timetable.xlsx - day timetable 시트
 python 기능이 excel로 새로 개발된 사항
 setting.xlsx
 ```
+
+
+<details>
+  <summary>목차</summary>
+  <ol>
+    <li>
+      <a href="사용 방법">사용 방법</a>
+    </li>
+    <li>
+      <a href="#명령어">명령어</a>
+      <ul>
+        <li><a href="#!start">start</a></li>
+        <li><a href="#!stop">stop</a></li>
+        <li><a href="#!confirm">confirm</a></li>
+        <li><a href="#!info">info</a></li>
+        <li><a href="#!day_timetable">day_timetable</a></li>
+        <li><a href="#!now">now</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#초기 설정">초기 설정</a>
+        <ul>
+          <li><a href="#봇 생성">봇 생성</a></li>
+          <li><a href="#멘션 설정">멘션 설정</a></li>
+          <li>
+            <a href="#엑셀 파일">엑셀 파일</a>
+            <ul>
+              <li><a href="#setting.xlsx">setting.xlsx</a></li>
+              <li>
+                <a href="#timetable.xlsx">timetable.xlsx</a>
+                <ul>
+                  <li><a href="#timetable sheet">timetable sheet</a></li>
+                  <li><a href="#day timetable sheet">day timetable sheet</a></li>
+                <ul>
+              </li>
+              <li><a href="#subject.xlsx">subject.xlsx</a></li>
+            </ul>
+          </li>
+        </ul>
+    </li>
+  </ol>
+</details>
+
+
 # 사용 방법
 모든 설정이 끝나면 main.py를 실행하신 후 봇이 추가된 디스코드 채널에<br>
 !start 를 보내면 !start 를 보낸 메시지가 삭제되고 봇이 메시지를 보냅니다.<br>
@@ -46,9 +90,10 @@ setting.xlsx
 공지를 종료합니다.
 ![image](https://user-images.githubusercontent.com/61561973/158637615-4f690ea9-42e4-4050-97b7-bd2ef5d4a764.png)
 
-## !confirm 요일
+## !confirm
 해당 요일의 시간표를 전부 보냅니다.<br>
-요일 부분은 반드시 축약어를 사용하셔야 합니다.<br>
+명령어 뒤에 매개변수가 필요합니다. 요일을 입력하면 되는데, <br>
+반드시 축약어를 사용하셔야 합니다.<br>
 예: !confirm Mon<br>
 ![image](https://user-images.githubusercontent.com/61561973/158638432-5c07b433-a693-42f8-8b22-ec79bc906c5d.png)
 
@@ -61,6 +106,7 @@ setting.xlsx 값을 전부 보냅니다.<br>
 timetable.xlsx - day timetable 시트 값을 보냅니다.<br>
 일과 시간표 입니다. 엑셀 파일을 제대로 읽는 지 확인할 때 쓰입니다.<br>
 ![image](https://user-images.githubusercontent.com/61561973/158639060-74961702-e9b7-4b3b-817f-c4b9a3180e13.png)
+
 ## !now
 현재 시간을 보냅니다.<br>
 ![image](https://user-images.githubusercontent.com/61561973/158639239-2a5ed0e3-6cf6-4d77-a5be-3a1586234902.png)
